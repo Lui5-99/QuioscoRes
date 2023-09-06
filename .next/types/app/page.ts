@@ -1,4 +1,4 @@
-// File: /Users/luisarellano/Downloads/React/QuioscoRes/app/page.js
+// File: C:\Users\LuisAntonioArellanoB\Downloads\Convert\Apps-React\QuioscoRes\app\page.jsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
