@@ -6,7 +6,9 @@ const QuioscoContext = createContext();
 
 export const QuioscoProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
-  const [currentCategory, setCurrentCategory] = useState({})
+  const [currentCategory, setCurrentCategory] = useState({});
+  const [product, setProduct] = useState({});
+  const [modal, setModal] = useState(false);
   const getCategories = async () => {
     try {
       const { data } = await axios("/api/categories");
@@ -19,18 +21,33 @@ export const QuioscoProvider = ({ children }) => {
     getCategories();
   }, []);
   useEffect(() => {
-    setCurrentCategory(categories[0])
-  }, [categories])
-  const handleClickCategory = id => {
-    const category = categories.filter(cat => cat.id === id)
-    setCurrentCategory(category[0])
-  }
+    setCurrentCategory(categories[0]);
+  }, [categories]);
+  const handleClickCategory = (id) => {
+    const category = categories.filter((cat) => cat.id === id);
+    setCurrentCategory(category[0]);
+  };
+  const handleSetProduct = (product) => {
+    setProduct(product);
+  };
+  const handleChangeModal = () => {
+    setModal(!modal);
+  };
   return (
-    <QuioscoContext.Provider value={{categories, currentCategory, handleClickCategory
-    }}>
+    <QuioscoContext.Provider
+      value={{
+        categories,
+        currentCategory,
+        handleClickCategory,
+        product,
+        handleSetProduct,
+        modal,
+        handleChangeModal,
+      }}
+    >
       {children}
     </QuioscoContext.Provider>
   );
 };
 
-export default QuioscoContext
+export default QuioscoContext;
