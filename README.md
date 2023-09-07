@@ -1,5 +1,25 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## First Steps for database
+First you need mysql or postgres SQL:
+- Install Prisma in your project:
+```bash
+npm i -D Prisma
+#before
+npm i @prisma/client
+#before you installed dependencies
+npx prisma init
+```
+- Change data in /Prisma/scheme.prisma
+- Change connection string in .env
+- Add your models to scheme.prisma
+- Excecute command, migrate models to database:
+```bash
+npx prisma migrate dev
+#to see database 
+npx prisma studio
+```
+
 ## Getting Started
 
 First, run the development server:
