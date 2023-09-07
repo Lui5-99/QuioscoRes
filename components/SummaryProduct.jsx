@@ -5,7 +5,7 @@ import useCategories from "@/hooks/useCategories";
 const SummaryProduct = ({ product }) => {
   const { handleEditcount, handleDeleteProduct } = useCategories();
   return (
-    <div className="shadow p-5 mb-3 flex gap-10 items-center">
+    <div className="shadow p-5 mb-3 md:flex gap-10 items-center">
       <div className="md:w-1/6">
         <Image
           width={300}
@@ -24,7 +24,7 @@ const SummaryProduct = ({ product }) => {
           product.count * product.price
         )}`}</p>
       </div>
-      <div>
+      <div className="md:flex md:mt-0 mt-3">
         <button
           type="button"
           className="bg-sky-700 flex gap-2 px-5 py-2 text-white rounded-md font-bold uppercase shadow-md w-full "

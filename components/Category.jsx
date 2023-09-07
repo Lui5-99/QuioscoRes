@@ -5,7 +5,7 @@ const Category = ({ category }) => {
   const { id, name, icon } = category;
   const { currentCategory, handleClickCategory } = useCategories()
   return (
-    <div className={`${currentCategory?.id === id && 'bg-amber-400'} flex items-center gap-4 w-full border p-5 hover:bg-amber-400 trasition-all duration-500`}>
+    <div className={`${currentCategory?.id === id ? 'bg-amber-400' : ''} flex items-center gap-4 w-full border p-5 hover:bg-amber-400 trasition-all duration-500`}>
       <Image
         width={70}
         height={70}

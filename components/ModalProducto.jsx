@@ -52,8 +52,8 @@ const ModalProducto = () => {
             </svg>
           </button>
         </div>
-        <h1 className="text-3xl font-bold mt-5">{name}</h1>
-        <p className="mt-5 font-black text-5xl text-amber-500">
+        <h1 className="text-xl md:text-3xl font-bold mt-5">{name}</h1>
+        <p className="mt-5 font-black text-2xl md:text-5xl text-amber-500">
           {formatearDinero(price)}
         </p>
         <div className="flex gap-4 mt-5">
