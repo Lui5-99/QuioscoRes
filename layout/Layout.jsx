@@ -1,26 +1,27 @@
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer } from "react-toastify";
 import Head from "next/head";
 import Modal from "react-modal";
 import Sidebar from "@/components/Sidebar";
 import useCategories from "@/hooks/useCategories";
 import ModalProducto from "@/components/ModalProducto";
-import 'react-toastify/dist/ReactToastify.css';
+import Steps from "@/components/Steps";
+import "react-toastify/dist/ReactToastify.css";
 
 const customStyles = {
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
   },
 };
 
 Modal.setAppElement("#__next");
 
 const Layout = ({ children, page }) => {
-  const { modal, product } = useCategories()
+  const { modal, product } = useCategories();
   return (
     <>
       <Head>
@@ -32,15 +33,15 @@ const Layout = ({ children, page }) => {
           <Sidebar />
         </aside>
         <main className="md:w-8/12 xl:w-3/4 2xl:w-4/5 h-screen overflow-y-scroll">
-          <div className="p-10 mt-10">{children}</div>
+          <div className="p-10 mt-10">
+            <Steps />
+            {children}
+          </div>
         </main>
       </div>
       {modal && (
-        <Modal
-          isOpen={modal}
-          style={customStyles}
-        >
-          <ModalProducto/>
+        <Modal isOpen={modal} style={customStyles}>
+          <ModalProducto />
         </Modal>
       )}
       <ToastContainer />

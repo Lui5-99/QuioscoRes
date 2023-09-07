@@ -2,6 +2,7 @@
 import { useState, useEffect, createContext, useContext } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const QuioscoContext = createContext();
 
@@ -11,6 +12,11 @@ export const QuioscoProvider = ({ children }) => {
   const [product, setProduct] = useState({});
   const [modal, setModal] = useState(false);
   const [order, setOrder] = useState([]);
+  const [name, setName] = useState('')
+  const [total, setTotal] = useState('')
+
+  const router = useRouter()
+
   const getCategories = async () => {
     try {
       const { data } = await axios("/api/categories");
@@ -25,9 +31,14 @@ export const QuioscoProvider = ({ children }) => {
   useEffect(() => {
     setCurrentCategory(categories[0]);
   }, [categories]);
+  useEffect(() => {
+    const newTotal = order.reduce((total, product) => (product.price * product.count) + total, 0)
+    setTotal(newTotal)
+  }, [order])
   const handleClickCategory = (id) => {
     const category = categories.filter((cat) => cat.id === id);
     setCurrentCategory(category[0]);
+    router.push('/')
   };
   const handleSetProduct = (product) => {
     setProduct(product);
@@ -35,7 +46,16 @@ export const QuioscoProvider = ({ children }) => {
   const handleChangeModal = () => {
     setModal(!modal);
   };
-  const handleOrder = ({categoryId, image, ...product}) => {
+  const handleEditcount = id => {
+    const newProduct = order.filter(product => product.id === id)
+    setModal(!modal)
+    setProduct(newProduct[0])
+  }
+  const handleDeleteProduct = id => {
+    const removeProduct = order.filter(product => product.id !== id)
+    setOrder(removeProduct)
+  }
+  const handleOrder = ({categoryId, ...product}) => {
     if(order.some(state => state.id === product.id)){
       const orderUpdate = order.map(state => state.id === product.id ? product : state)
       setOrder(orderUpdate)
@@ -58,7 +78,12 @@ export const QuioscoProvider = ({ children }) => {
         modal,
         handleChangeModal,
         handleOrder,
-        order
+        order,
+        handleEditcount,
+        handleDeleteProduct,
+        name,
+        setName,
+        total
       }}
     >
       {children}
