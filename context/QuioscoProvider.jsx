@@ -67,6 +67,31 @@ export const QuioscoProvider = ({ children }) => {
     }
     setModal(false)
   }
+  const submitOrder = async () => {
+    try {
+      const date = new Date().toLocaleDateString('en-GB')
+      const data = {
+        order: order,
+        name: name,
+        total: total,
+        date: date,
+      }
+      await axios.post('/api/orders', JSON.stringify(data))
+      
+      setCurrentCategory(categories[0])
+      setOrder([])
+      setName('')
+      setTotal(0)
+      toast.success('Pedido realizado correctamente')
+
+      setTimeout(() => {
+        router.push('/')
+      }, 3000)
+
+    } catch (error) {
+      console.log(error)
+    }
+  };
   return (
     <QuioscoContext.Provider
       value={{
@@ -83,7 +108,8 @@ export const QuioscoProvider = ({ children }) => {
         handleDeleteProduct,
         name,
         setName,
-        total
+        total,
+        submitOrder
       }}
     >
       {children}

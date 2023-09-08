@@ -1,7 +1,6 @@
 "use client";
 import Layout from "@/layout/Layout";
 import useCategories from "@/hooks/useCategories";
-import Image from "next/image";
 import Product from "@/components/Product";
 
 export default function Home() {

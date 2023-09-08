@@ -24,7 +24,7 @@ const SummaryProduct = ({ product }) => {
           product.count * product.price
         )}`}</p>
       </div>
-      <div className="md:flex md:mt-0 mt-3">
+      <div className="md:flex md:flex-col md:mt-0 mt-3">
         <button
           type="button"
           className="bg-sky-700 flex gap-2 px-5 py-2 text-white rounded-md font-bold uppercase shadow-md w-full "
