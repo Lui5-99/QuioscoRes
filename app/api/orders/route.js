@@ -19,7 +19,6 @@ export async function POST(request) {
   try {
     const prisma = new PrismaClient();
     const data = await request.json();
-    console.log(data);
     const order = await prisma.order.create({
       data: data,
     });
