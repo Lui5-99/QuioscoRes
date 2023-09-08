@@ -32,7 +32,7 @@ const Steps = () => {
         {steps.map((item) => (
           <Link
             href={item.url}
-            className="text-md md:text-2xl font-bold"
+            className="text-sm md:text-2xl font-bold"
             key={item.step}
           >
             {item.name}
