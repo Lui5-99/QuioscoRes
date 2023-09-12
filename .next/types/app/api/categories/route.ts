@@ -1,4 +1,4 @@
-// File: /Users/luisarellano/Downloads/React/QuioscoRes/app/api/categories/route.js
+// File: C:\Users\LuisAntonioArellanoB\Downloads\Convert\Apps-React\QuioscoRes\app\api\categories\route.js
 import * as entry from '../../../../../app/api/categories/route.js'
 import type { NextRequest } from 'next/server.js'
 

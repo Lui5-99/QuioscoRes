@@ -28,7 +28,7 @@ const Layout = ({ children, page }) => {
         <title>Café - {page}</title>
         <meta name="description" content="Quiosco App" />
       </Head>
-      <div id="__next" className="flex">
+      <div id="__next" className="flex dark:bg-zinc-800">
         <aside className="w-[90px] md:w-4/12 xl:w-1/4 2xl:w-1/5">
           <Sidebar />
         </aside>
@@ -40,7 +40,7 @@ const Layout = ({ children, page }) => {
         </main>
       </div>
       {modal && (
-        <Modal isOpen={modal} style={customStyles}>
+        <Modal id="modalProduct" isOpen={modal} style={customStyles}>
           <ModalProducto />
         </Modal>
       )}

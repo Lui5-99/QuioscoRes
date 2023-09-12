@@ -17,13 +17,13 @@ export default function Order() {
 
   return (
     <Layout page="Total">
-      <h1 className="text-2xl md:text-4xl font-black">Total y confirmar pedido</h1>
-      <p className="text-xl md:text-2xl my-10">Confirma tu pedido</p>
+      <h1 className="text-2xl md:text-4xl font-black dark:text-white">Total y confirmar pedido</h1>
+      <p className="text-xl md:text-2xl my-10 dark:text-white">Confirma tu pedido</p>
       <div id="form">
         <div>
           <label
             htmlFor="name"
-            className="block uppercase text-slate-800 font-bold text-md md:text-xl"
+            className="block uppercase text-slate-800 font-bold text-md md:text-xl dark:text-white"
           >
             Nombre
           </label>
@@ -39,7 +39,7 @@ export default function Order() {
         <>
           {order.length > 0 &&
             order.map((product) => (
-              <div key={product.id} className="flex justify-between mt-5">
+              <div key={product.id} className="flex justify-between mt-5 dark:text-white">
                 <p className="text-base md:text-xl">{product.name} x {product.count}</p>
                 <p className="text-md md:text-2xl font-bold">
                   {formatearDinero(product.price * product.count)}
@@ -48,7 +48,7 @@ export default function Order() {
             ))}
         </>
         <div className="mt-10">
-          <p className="text-2xl">
+          <p className="text-2xl dark:text-white">
             Total a pagar{" "}
             <span className="font-bold">{formatearDinero(total)}</span>
           </p>

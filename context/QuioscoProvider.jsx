@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 const QuioscoContext = createContext();
 
 export const QuioscoProvider = ({ children }) => {
+  const [theme, setTheme] = useState('')
   const [categories, setCategories] = useState([]);
   const [currentCategory, setCurrentCategory] = useState({});
   const [product, setProduct] = useState({});
@@ -27,7 +28,19 @@ export const QuioscoProvider = ({ children }) => {
   };
   useEffect(() => {
     getCategories();
+    if(window.matchMedia('(prefers-color-schema)')){
+      return setTheme('dark')
+    }
+    return setTheme('light')
   }, []);
+  useEffect(() => {
+    if(theme === 'dark'){
+      document.querySelector("html").classList.add('dark')
+    }
+    else{
+      document.querySelector("html").classList.remove('dark')
+    }
+  }, [theme])
   useEffect(() => {
     setCurrentCategory(categories[0]);
   }, [categories]);
@@ -109,7 +122,8 @@ export const QuioscoProvider = ({ children }) => {
         name,
         setName,
         total,
-        submitOrder
+        submitOrder,
+        theme
       }}
     >
       {children}

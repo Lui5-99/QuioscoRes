@@ -11,7 +11,7 @@ export default function AdminLayout({ children, page }) {
         <meta name="description" content="Quiosco Cafetería" />
       </Head>
 
-      <div className="md:flex">
+      <div className="md:flex dark:bg-zinc-800 dark:text-white">
         <aside className="md:w-4/12 xl:w-1/4 2xl:w-1/5 py-5">
           <div className="flex justify-center">
             <Image

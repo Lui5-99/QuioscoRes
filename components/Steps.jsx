@@ -32,14 +32,14 @@ const Steps = () => {
         {steps.map((item) => (
           <Link
             href={item.url}
-            className="text-sm md:text-2xl font-bold"
+            className="text-sm md:text-2xl font-bold dark:text-white"
             key={item.step}
           >
             {item.name}
           </Link>
         ))}
       </div>
-      <div className="bg-gray-100 mb-10">
+      <div className="bg-gray-100 dark:bg-zinc-500 mb-10">
         <div
           className="rounded-full bg-amber-500 text-xs leading-none h-2 text-center text-white"
           style={{ width: `${progress()}%` }}

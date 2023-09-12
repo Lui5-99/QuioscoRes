@@ -1,14 +1,25 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import { formatearDinero } from "@/helper";
 import Image from "next/image";
 import useCategories from "@/hooks/useCategories";
 
 const ModalProducto = () => {
-  const { product, handleChangeModal, handleOrder, order } = useCategories();
+  const { product, handleChangeModal, handleOrder, order, theme } =
+    useCategories();
   const { id, name, price, image } = product;
   const [count, setCount] = useState(1);
   const [edit, setEdit] = useState(false);
+
+  useEffect(() => {
+    if (theme === "dark") {
+      const setColor = () => {
+        document.getElementById("modalProduct").style.backgroundColor =
+          "#27272a";
+      };
+      setColor();
+    }
+  }, []);
 
   useEffect(() => {
     if (order.some((state) => state.id === product.id)) {
@@ -31,6 +42,7 @@ const ModalProducto = () => {
       <div className="md:w-2/3">
         <div className="flex justify-end">
           <button
+            className="dark:text-white"
             type="button"
             onClick={() => {
               handleChangeModal();
@@ -52,11 +64,11 @@ const ModalProducto = () => {
             </svg>
           </button>
         </div>
-        <h1 className="text-xl md:text-3xl font-bold mt-5">{name}</h1>
+        <h1 className="text-xl md:text-3xl font-bold mt-5 dark:text-white">{name}</h1>
         <p className="mt-5 font-black text-2xl md:text-5xl text-amber-500">
           {formatearDinero(price)}
         </p>
-        <div className="flex gap-4 mt-5">
+        <div className="flex gap-4 mt-5 dark:text-white">
           <button
             type="button"
             onClick={() => {
@@ -110,7 +122,7 @@ const ModalProducto = () => {
             handleOrder({ ...product, count });
           }}
         >
-          {edit ? 'Guardar cambios' : 'Añadir al pedido'}
+          {edit ? "Guardar cambios" : "Añadir al pedido"}
         </button>
       </div>
     </div>

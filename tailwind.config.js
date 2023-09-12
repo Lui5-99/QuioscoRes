@@ -6,6 +6,7 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './layout/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  "darkMode" : "class",
   theme: {
     extend: {
       backgroundImage: {

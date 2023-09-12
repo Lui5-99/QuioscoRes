@@ -5,7 +5,7 @@ import useCategories from "@/hooks/useCategories";
 const SummaryProduct = ({ product }) => {
   const { handleEditcount, handleDeleteProduct } = useCategories();
   return (
-    <div className="shadow p-5 mb-3 md:flex gap-10 items-center">
+    <div className="shadow p-5 mb-3 md:flex gap-10 items-center dark:bg-zinc-600">
       <div className="md:w-1/6">
         <Image
           width={300}
@@ -15,12 +15,12 @@ const SummaryProduct = ({ product }) => {
         />
       </div>
       <div className="md:w-5/6">
-        <p className="text-3xl font-bold">{product.name}</p>
-        <p className="text-xl font-bold mt-2">{`Cantidad: ${product.count}`}</p>
-        <p className="text-xl font-bold text-amber-500 mt-2">{`Precio: ${formatearDinero(
+        <p className="text-xl md:text-3xl font-bold dark:text-white">{product.name}</p>
+        <p className="text-md md:text-xl font-bold mt-2 dark:text-white">{`Cantidad: ${product.count}`}</p>
+        <p className="text-md md:text-xl font-bold text-amber-500 mt-2">{`Precio: ${formatearDinero(
           product.price
         )}`}</p>
-        <p className="text-sm text-gray-700 mt-2">{`Subtotal: ${formatearDinero(
+        <p className="text-sm text-gray-700 mt-2 dark:text-zinc-300">{`Subtotal: ${formatearDinero(
           product.count * product.price
         )}`}</p>
       </div>

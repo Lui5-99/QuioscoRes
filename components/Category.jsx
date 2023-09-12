@@ -8,7 +8,7 @@ const Category = ({ category }) => {
     <div
       className={`${
         currentCategory?.id === id ? "bg-amber-400" : ""
-      } flex items-center gap-4 w-full border p-5 hover:bg-amber-400 trasition-all duration-500`}
+      } flex items-center gap-4 w-full border dark:border-zinc-600 p-5 hover:bg-amber-400 trasition-all duration-500`}
       onClick={() => handleClickCategory(id)}
     >
       <Image
@@ -18,7 +18,7 @@ const Category = ({ category }) => {
         alt={`Image ${icon}`}
         className="mr-5"
       />
-      <button type="button" className="text-[#ffffff0a] md:text-2xl md:font-bold md:text-black">
+      <button type="button" className="text-[#ffffff00] dark:text-[#ffffff00] md:text-2xl md:font-bold dark:md:text-white md:text-black">
         {name}
       </button>
     </div>

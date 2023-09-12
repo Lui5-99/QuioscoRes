@@ -6,11 +6,11 @@
       "static/css/app/page.css",
       "static/chunks/app/page.js"
     ],
-    "/layout": [
+    "/Summary/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
+      "static/css/app/Summary/page.css",
+      "static/chunks/app/Summary/page.js"
     ],
     "/Order/page": [
       "static/chunks/webpack.js",
@@ -23,6 +23,12 @@
       "static/chunks/main-app.js",
       "static/css/app/Admin/page.css",
       "static/chunks/app/Admin/page.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ]
   }
 }

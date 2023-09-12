@@ -1,4 +1,4 @@
-// File: /Users/luisarellano/Downloads/React/QuioscoRes/app/layout.js
+// File: C:\Users\LuisAntonioArellanoB\Downloads\Convert\Apps-React\QuioscoRes\app\layout.js
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
